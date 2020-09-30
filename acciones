@@ -1,0 +1,71 @@
+package ordenararchivo;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+public class acciones {
+
+    public String LeerTxt(String direction) {
+        String texto = "";
+        String oracion = "";
+        String[] pro = {"El", "La"};
+        String[] sujeto = {"niño", "perro","niña"};
+        String[] verbo = {"come", "juega"};
+        String[] cosa = {"feliz", "manzanas", "croquetas"};
+        
+        try {
+            BufferedReader bf = new BufferedReader(new FileReader(direction));
+            String temp = "";
+            String readbf;
+            while ((readbf = bf.readLine()) != null) {
+                temp = temp + readbf;
+            }
+            texto = temp;
+            String[] arr = texto.split(" ");
+
+            for (int i = 0; i <= pro.length - 1; i++) {
+
+                for (int j = 0; j <= arr.length - 1; j++) {
+                    if (pro[i].equals(arr[j])) {
+                        oracion = arr[j];
+
+                    }
+                }
+            }
+            for (int i = 0; i <= sujeto.length - 1; i++) {
+
+                for (int j = 0; j <= arr.length - 1; j++) {
+                    if (sujeto[i].equals(arr[j])) {
+                        oracion = oracion +" "+ arr[j];
+
+                    }
+                }
+            }
+            for (int i = 0; i <= verbo.length - 1; i++) {
+
+                for (int j = 0; j <= arr.length - 1; j++) {
+                    if (verbo[i].equals(arr[j])) {
+                        oracion = oracion +" "+ arr[j];
+
+                    }
+                }
+            }for (int i = 0; i <= cosa.length - 1; i++) {
+
+                for (int j = 0; j <= arr.length - 1; j++) {
+                    if (cosa[i].equals(arr[j])) {
+                        oracion = oracion +" "+ arr[j];
+
+                    }
+                }
+            }
+          
+            System.out.println(oracion);
+
+        } catch (Exception e) {
+            System.out.println("No se encontro archivo");
+        }
+
+        return texto;
+
+    }
+}
