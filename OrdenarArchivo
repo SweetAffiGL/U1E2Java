@@ -1,0 +1,12 @@
+package ordenararchivo;
+
+public class OrdenarArchivo {
+
+    public static void main(String[] args) {
+        acciones a = new acciones();
+        
+        System.out.println(a.LeerTxt("C:\\Users\\52735\\Desktop\\j.txt"));
+        
+    }
+    
+}
